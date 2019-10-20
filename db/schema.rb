@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_10_20_193341) do
 
   create_table "money", force: :cascade do |t|
     t.string "type", null: false
+    t.boolean "pending", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
