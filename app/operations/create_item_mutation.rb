@@ -13,7 +13,7 @@ class CreateItemMutation < Types::BaseMutation
     if item.save
       {item: item, errors: []}
     else
-      {item: nil, errors: result.errors}
+      {item: nil, errors: item.errors}
     end
   end
 end
