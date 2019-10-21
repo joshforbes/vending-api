@@ -10,4 +10,16 @@ RSpec.describe Item, type: :model do
     it { should validate_presence_of(:cost) }
     it { should validate_numericality_of(:cost).only_integer.is_greater_than(0) }
   end
+
+  describe ".one_of_each" do
+    it "returns only entries with distinct names and costs" do
+      create(:item, name: "Snickers", cost: 10)
+      create(:item, name: "Snickers", cost: 10)
+      create(:item, name: "Milky Way")
+
+      result = described_class.one_of_each
+
+      expect(result.to_a.count).to eq(2)
+    end
+  end
 end

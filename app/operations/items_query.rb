@@ -3,6 +3,6 @@ class ItemsQuery < Types::BaseResolver
   type Outputs::ItemType.connection_type, null: false
 
   def resolve
-    Item.all
+    Item.one_of_each
   end
 end
