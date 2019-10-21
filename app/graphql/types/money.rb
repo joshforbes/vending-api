@@ -4,5 +4,7 @@ module Types
     description "A representation of currency"
 
     value "QUARTER", value: Quarter
+    value "DIME", value: Dime
+    value "NICKEL", value: Nickel
   end
 end

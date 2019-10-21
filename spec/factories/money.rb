@@ -10,4 +10,6 @@ FactoryBot.define do
   end
 
   factory :quarter, parent: :money, class: Quarter
+  factory :dime, parent: :money, class: Dime
+  factory :nickel, parent: :money, class: Nickel
 end
