@@ -32,4 +32,16 @@ RSpec.describe Money, type: :model do
       expect(result).to eq(50)
     end
   end
+
+  describe ".refund" do
+    it "deletes and returns all of the pending money" do
+      first_pending_money = create(:quarter, :pending)
+      second_pending_money = create(:quarter, :pending)
+      not_pending_money = create(:quarter, :not_pending)
+
+      result = described_class.refund
+
+      expect(result).to eq([first_pending_money, second_pending_money])
+    end
+  end
 end
