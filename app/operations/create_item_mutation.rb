@@ -2,6 +2,7 @@ class CreateItemMutation < Types::BaseMutation
   description "Create a new item"
 
   argument :name, String, required: true
+  argument :cost, Integer, required: true
 
   field :item, Outputs::ItemType, null: true
   field :errors, resolver: Resolvers::Error
