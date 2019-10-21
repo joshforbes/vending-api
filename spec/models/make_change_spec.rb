@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe MakeChange, type: :model do
   describe "#call" do
@@ -12,7 +12,6 @@ RSpec.describe MakeChange, type: :model do
         build_stubbed(:nickel),
         build_stubbed(:nickel),
       ], due: 65).call
-
 
       expect(result.success?).to be(true)
       expect(result.change).to match([Quarter, Quarter, Dime, Nickel])
@@ -32,7 +31,6 @@ RSpec.describe MakeChange, type: :model do
         build_stubbed(:quarter),
       ], due: 65).call
 
-
       expect(result.success?).to be(false)
     end
 
@@ -41,7 +39,6 @@ RSpec.describe MakeChange, type: :model do
         build_stubbed(:quarter),
         build_stubbed(:dime),
       ], due: 30).call
-
 
       expect(result.success?).to be(false)
     end

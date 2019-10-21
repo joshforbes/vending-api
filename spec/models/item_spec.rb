@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Item, type: :model do
   context "validations" do
@@ -19,7 +19,7 @@ RSpec.describe Item, type: :model do
 
       result = described_class.one_of_each
 
-      expect(result.to_a.count).to eq(2)
+      expect(result.size).to eq(2)
     end
   end
 end

@@ -6,6 +6,6 @@ class RefundMoneyMutation < Types::BaseMutation
   def resolve
     refund = Money.refund
 
-    { money: refund.map(&:class) }
+    {money: refund.map(&:class)}
   end
 end
