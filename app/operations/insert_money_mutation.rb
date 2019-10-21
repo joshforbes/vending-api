@@ -3,9 +3,16 @@ class InsertMoneyMutation < Types::BaseMutation
 
   argument :money, Types::Money, required: true
 
-  field :success, Boolean, null: true
+  field :money, Types::Money, null: true
+  field :errors, resolver: Resolvers::Error
 
   def resolve(money:)
-    { success: money.create }
+    money = money.new
+
+    if money.save
+      {money: money.class, errors: []}
+    else
+      {money: nil, errors: money.errors}
+    end
   end
 end

@@ -6,7 +6,7 @@ describe "Insert Money Mutation API", :graphql do
       <<~'GRAPHQL'
         mutation($input: InsertMoneyInput!) {
           insertMoney(input: $input) {
-            success
+            money
           }
         }
       GRAPHQL
@@ -19,8 +19,8 @@ describe "Insert Money Mutation API", :graphql do
         },
       }
 
-      success_result = result[:data][:insertMoney][:success]
-      expect(success_result).to eq(true)
+      money_result = result[:data][:insertMoney][:money]
+      expect(money_result).to eq("QUARTER")
       expect(Quarter.count).to eq(1)
     end
   end
