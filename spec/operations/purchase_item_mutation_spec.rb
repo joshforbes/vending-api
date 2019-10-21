@@ -22,7 +22,7 @@ describe "Purchase Item Mutation API", :graphql do
 
       result = execute query, variables: {
         input: {
-          itemId: item.id
+          itemId: item.id,
         },
       }
 

@@ -5,7 +5,7 @@ class MakeChange
   end
 
   def call
-    change = get_change
+    change = seperate_change
     if change.sum { |money| money.value } == due
       Result.success(change: change)
     else
@@ -17,13 +17,12 @@ class MakeChange
 
   attr_reader :due, :available_money
 
-  def get_change
-    result = money_sorted_big_to_little.reduce(remaining: due, change: []) { |acc, money|
+  def separate_change
+    money_sorted_big_to_little.each_with_object(remaining: due, change: []) { |money, acc|
       next(acc) unless (acc[:remaining] / money.value).positive?
 
       acc[:remaining] -= money.value
       acc[:change] << money
-      acc
     }[:change]
   end
 

@@ -15,7 +15,7 @@ describe "Insert Money Mutation API", :graphql do
     it "creates a quarter" do
       result = execute query, variables: {
         input: {
-          money: "QUARTER"
+          money: "QUARTER",
         },
       }
 

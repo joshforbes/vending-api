@@ -18,7 +18,7 @@ describe "Create Item Mutation API", :graphql do
       result = execute query, variables: {
         input: {
           name: "Snickers",
-          cost: 100
+          cost: 100,
         },
       }
 

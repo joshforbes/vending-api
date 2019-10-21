@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Money, type: :model do
   context "validations" do
@@ -37,7 +37,7 @@ RSpec.describe Money, type: :model do
     it "deletes and returns all of the pending money" do
       first_pending_money = create(:quarter, :pending)
       second_pending_money = create(:quarter, :pending)
-      not_pending_money = create(:quarter, :not_pending)
+      create(:quarter, :not_pending)
 
       result = described_class.refund
 
@@ -49,7 +49,7 @@ RSpec.describe Money, type: :model do
     it "removes pending from all money" do
       pending_money = create(:quarter, :pending)
 
-      result = described_class.deposit
+      described_class.deposit
 
       expect(pending_money.reload).not_to be_pending
     end

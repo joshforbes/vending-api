@@ -4,7 +4,7 @@ class PurchaseItem
   end
 
   def call
-    return Result.failure("Not enough money provided") if !afford?
+    return Result.failure("Not enough money provided") unless afford?
 
     result = MakeChange.new(
       due: pending_balance - item.cost,
