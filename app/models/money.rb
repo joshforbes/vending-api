@@ -6,4 +6,8 @@ class Money < ApplicationRecord
   def self.pending_balance
     pending.sum { |coin| coin.class::VALUE }
   end
+
+  def self.refund
+    pending.destroy_all
+  end
 end
