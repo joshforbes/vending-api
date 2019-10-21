@@ -4,7 +4,7 @@ RSpec.describe PurchaseItem, type: :model do
   describe "#call" do
     it "returns the item and refunds the change on success" do
       item = create(:item, cost: 10)
-      create(:quarter, :pending)
+      pending_quarter = create(:quarter, :pending)
       dime = create(:dime)
       nickel = create(:nickel)
 
@@ -13,6 +13,7 @@ RSpec.describe PurchaseItem, type: :model do
       expect(result.success?).to be(true)
       expect(result.item).to eq(item)
       expect(result.change).to eq([dime, nickel])
+      expect(pending_quarter.reload).not_to be_pending
       expect(Dime.count).to eq(0)
       expect(Nickel.count).to eq(0)
     end

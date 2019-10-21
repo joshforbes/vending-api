@@ -11,6 +11,10 @@ class Money < ApplicationRecord
     pending.destroy_all
   end
 
+  def self.deposit
+    pending.update(pending: false)
+  end
+
   def value
     self.class::VALUE
   end
