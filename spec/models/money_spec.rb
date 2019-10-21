@@ -44,4 +44,14 @@ RSpec.describe Money, type: :model do
       expect(result).to eq([first_pending_money, second_pending_money])
     end
   end
+
+  describe ".deposit" do
+    it "removes pending from all money" do
+      pending_money = create(:quarter, :pending)
+
+      result = described_class.deposit
+
+      expect(pending_money.reload).not_to be_pending
+    end
+  end
 end

@@ -12,6 +12,7 @@ class PurchaseItem
     ).call
 
     if result.success?
+      Money.deposit
       Result.success(
         item: item.delete,
         change: result.change.map { |change| change.destroy }
