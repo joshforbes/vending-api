@@ -1,24 +1,12 @@
-# README
+# Vending Machine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an example graphql repo with tests.
 
-Things you may want to cover:
+It implements a "digital vending machine".  The client can:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* See a list of items
+* Create a new item
+* Insert money
+* See their pending balance
+* Refund their pending money
+* Purchase an item
