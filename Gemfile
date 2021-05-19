@@ -6,7 +6,7 @@ ruby "2.6.5"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "graphql"
 gem "pg", ">= 0.18", "< 2.0"
-gem "puma", "~> 3.11"
+gem "puma", "~> 4.3"
 gem "rails", "~> 6.0.0"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
